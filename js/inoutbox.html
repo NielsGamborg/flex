@@ -1,0 +1,70 @@
+<div class="inputArea">
+    <form ng-submit="callGetSpotData(rawinitials)" >
+        <a title="klik for at se medarbejder i spot" target="_blank" href="http://samling.statsbiblioteket.dk/spotweb/#/search/{{initials}}">
+			<img ng-if="punches.length > 0" src="http://halley.statsbiblioteket.dk/PersonaleBilleder/{{initials}}.jpg" class="medarbejderFoto">
+		</a>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Medarbejder initialer:</td>
+                    <td>
+                        <input ng-model="rawinitials" type="text" value="{{ initials }}" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Antal stemplinger:</td>
+                    <td>
+                        <input ng-model="showpunches" type="text" value="{{showpunches}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="radioButtons" colspan="2">
+                        <input type="radio" ng-model="punchtype" value="">Vis alle
+                        <input type="radio" ng-model="punchtype" value="ind">Vis kun indstemplingerne
+                        <input type="radio" ng-model="punchtype" value="ud">Vis kun udstemplingerne
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<div class="statsLink" onclick="$('.stats').toggle()"><span class="stats">Show</span><span class="stats" style="display: none;">Hide</span> terminal stats</div>
+<div class="tableArea stats" style="display: none;">
+    <table ng-if="punches.length > 0">
+        <thead>
+            <tr>
+                <th>Terminal</th>
+                <th>Antal gennemgange</th>
+            </tr>
+        </thead>
+         <tbody>
+            <tr ng-repeat="(key,value) in count">
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="tableArea">
+    <p ng-if="punches.length == 0">Der findes ingen data på initialerne: <strong>{{initials}}</strong></p>
+    <table ng-if="punches.length > 0">
+        <thead>
+            <tr>
+                <th>Tidspunkt</th>
+                <th>Terminal navn</th>
+                <th>Stempelkode</th>
+            </tr>
+        </thead>
+         <tbody>
+            <tr ng-if="item.wintidStempKodeTekst.toLowerCase().includes(punchtype)" ng-repeat="item in punches | limitTo: showpunches">
+                <td>{{ item.time | date: 'dd-MM-yyyy HH:mm:ss'}}</td>
+                <td>{{ item.terminalName}}</td>
+                <td>{{ item.wintidStempKodeTekst}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a ng-if="punches.length > 0" class="scrollLink" scroll-top data-scrolltarget="#wrapper" data-scrollText="Scroll to top" href=""></a>
+</div>

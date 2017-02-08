@@ -1,0 +1,204 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #f6F6F9;
+	font-family: Arial, Helvetica, Sans-serif;
+}
+
+#wrapper{
+	background: white;
+	margin: 1em auto;
+	max-width: 1000px;
+	min-height: 500px;
+	padding: 1% 2% 3%;
+}
+
+h1{
+	font-size: 24px;
+}
+
+a{
+	color: navy;
+}
+
+table{
+	border-collapse: collapse;
+	margin-bottom: 1em;
+}
+
+td, th{
+	padding: .5em 1em;
+} 
+
+.tableArea table{
+	width: 100%;
+}
+
+.tableArea td, .tableArea th{
+	border: 1px solid #cccccc;
+}
+
+.tableArea th{
+	background-color: #069;
+	color: white;
+}
+
+.tableArea tr:nth-child(even){
+	background-color: #E6F0FC;
+}
+
+.inputArea{
+	background: #def;
+	margin-bottom: 1em;
+	padding: .5em 1em 1em 1em;
+}
+	
+input{
+	border: 1px solid E0E0E0;
+	font-size: 1.1em;
+	margin: 0em 3em 0 0;
+	padding: .15em .3em .2em;
+}
+
+input[type="submit"]{
+	background-color: #069;
+	border: 0;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+input[type="submit"]:hover{
+	background-color: #047;
+}
+
+input[type="submit"]:active{
+	background-color: #025;
+}
+
+input[type="radio"]{
+	margin: 0.5em 0.2em 0 1em;
+}
+
+input[type="radio"]:first-child{
+	margin-left: 0;
+}
+
+.medarbejderFoto{
+	border: 1px solid black;
+	float: right;
+    height: 150px;
+	transform: translateZ(0); /* triggering GPU acceleration */
+	transition: height 1s;
+}
+
+.medarbejderFoto:hover{
+    height: 250px;
+	transition: height 1s;
+}
+	
+#flexDataContainer{
+	max-height: 0px;
+	overflow:hidden;
+}
+
+#flexDataContainer.active{
+	max-height: 2500px;
+	transition: max-height 1s;
+}
+
+span.item{
+	display: block;
+}
+
+.item{
+	padding: 1em .5em;
+}
+
+.item:empty, .itemAll:empty{
+	display: none;
+}
+
+.statsLink{
+	color: #004488;
+	cursor: pointer;
+	margin-bottom: .5em;
+}
+
+.statsLink:hover{
+	text-decoration: underline;
+}	
+
+#showhide{
+	margin-top: 2em;
+}
+
+/* Menu */
+#menu{
+	background: #058;
+	border: 1px solid #058;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 0 2em;
+	overflow: hidden;
+}
+
+#menu ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#menu ul li{
+	float: left;
+}
+
+#menu ul li a{
+	border-right: 1px solid #cccccc;
+	color: #eeeeee;
+	display: inline-block;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+
+#menu ul li a:hover{
+	background: #07a;
+	color: #ffffff;
+}
+
+#menu ul li a.active{
+	background: white;
+	color: black;
+}
+
+#spinner{
+	background: white url("gfx/loader90.gif") no-repeat 2em 2em;
+	border: 1px solid #666;
+	border-radius: 3px;
+	display: none;
+	font-size: 16px;
+	height: 50px;
+	left: calc(50% - 100px);
+	padding: 4em 2em 2em;
+	position: fixed;
+	text-indent: 120px;
+	top: 10%;
+	width:  200px;
+	z-index: 1000;
+}
+
+#overlay{
+	background: black;
+	bottom: 0;
+	display: none;
+	left: 0;
+	opacity: 0.2;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 100;
+}
